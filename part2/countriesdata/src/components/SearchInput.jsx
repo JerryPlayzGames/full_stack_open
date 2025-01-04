@@ -7,7 +7,8 @@ const SearchInput = () => {
     const [message, setMessage] = useState('');
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
-    const apiKey = "388ee1810776ba38cf9eab7b8b152c56"
+    const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
     useEffect(() => {
         const fetchCountryData = async () => {
             try {
@@ -47,6 +48,7 @@ const SearchInput = () => {
                 try {
                     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCountry.capital}&units=metric&appid=${apiKey}`);
                     const data = await response.json();
+                    console.log(data)
                     setWeatherData(data);
                 } catch (error) {
                     console.error('Error fetching weather data:', error);
@@ -55,7 +57,7 @@ const SearchInput = () => {
 
             fetchWeatherData();
         }
-    }, [selectedCountry, apiKey]);
+    }, [selectedCountry]);
 
     const handleCountryClick = (country) => {
         setSelectedCountry(country);
