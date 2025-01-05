@@ -1,0 +1,13 @@
+###
+POST http://localhost:3000/api/persons HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "number": "123-456-7890"
+}
+
+###
+DELETE http://localhost:3000/api/persons/3 HTTP/1.1
+Content-Type: application/json
+
