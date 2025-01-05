@@ -44,17 +44,15 @@ const App = () => {
         });
       }
     } else {
-      personService
-        .create(personObject)
-        .then(returnedPerson => {
-          setPersons(persons.concat(returnedPerson))
-          setNotificationMessage(`Added ${newName}`)
-          setTimeout(() => {
-            setNotificationMessage(null)
-          }, 5000)
-          setNewName('')
-          setNewNumber('')
-        })
+      personService.create(personObject).then(returnedPerson => {
+        setPersons(persons.concat(returnedPerson));
+        setNewName('');
+        setNewNumber('');
+        setNotificationMessage(`Added ${returnedPerson.name}`);
+        setTimeout(() => {
+          setNotificationMessage(null);
+        }, 5000);
+      });
     }
   }
 
