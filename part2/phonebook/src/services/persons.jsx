@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://phonebook-backend-7xj6.onrender.com/api/persons'
+const API_URL = 'http://localhost:3000/api/persons'
 
 const getAll = async () => {
     const response = await axios.get(API_URL)
